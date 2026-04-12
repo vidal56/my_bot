@@ -1,0 +1,4 @@
+Invoking command in '/home/gabriel-vidal/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/gabriel-vidal/dev_ws/build/my_bot -- -j16 -l16
+Invoked command in '/home/gabriel-vidal/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/gabriel-vidal/dev_ws/build/my_bot -- -j16 -l16
+Invoking command in '/home/gabriel-vidal/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/gabriel-vidal/dev_ws/build/my_bot
+Invoked command in '/home/gabriel-vidal/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/gabriel-vidal/dev_ws/build/my_bot
