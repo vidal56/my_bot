@@ -13,14 +13,14 @@
   <library_effects>
     <effect id="Construction_Barrel_Mat">
       <profile_COMMON>
-        <newparam sid="Construction_Barrel_Diffuse.png-surface">
+        <newparam sid="Construction_Barrel_Diffuse_tga-surface">
           <surface type="2D">
-            <init_from>Construction_Barrel_Diffuse.png</init_from>
+            <init_from>Construction_Barrel_Diffuse_tga</init_from>
           </surface>
         </newparam>
-        <newparam sid="Construction_Barrel_Diffuse.png-sampler">
+        <newparam sid="Construction_Barrel_Diffuse_tga-sampler">
           <sampler2D>
-            <source>Construction_Barrel_Diffuse.png-surface</source>
+            <source>Construction_Barrel_Diffuse_tga-surface</source>
           </sampler2D>
         </newparam>
         <newparam sid="Construction_Barrel_Spec_tga-surface">
@@ -42,7 +42,7 @@
               <color>1.0 1.0 1.0 1</color>
             </ambient>
             <diffuse>
-              <texture texture="Construction_Barrel_Diffuse.png-sampler" texcoord="CHANNEL1"/>
+              <texture texture="Construction_Barrel_Diffuse_tga-sampler" texcoord="CHANNEL1"/>
             </diffuse>
             <specular>
               <color>0.9 0.9 0.9 1</color>
@@ -152,8 +152,8 @@
     </light>
   </library_lights>
   <library_images>
-    <image id="Construction_Barrel_Diffuse.png">
-      <init_from>Construction_Barrel_Diffuse.png</init_from>
+    <image id="Construction_Barrel_Diffuse_tga">
+      <init_from>../materials/textures/Construction_Barrel_Diffuse.png</init_from>
     </image>
     <image id="Construction_Barrel_Spec_tga">
       <init_from>../materials/textures/Construction_Barrel_Spec.png</init_from>

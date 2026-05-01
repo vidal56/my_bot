@@ -33,8 +33,13 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config description launch worlds models
+  DIRECTORY config description launch worlds models scripts
   DESTINATION share/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  scripts/lidar_visual.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()

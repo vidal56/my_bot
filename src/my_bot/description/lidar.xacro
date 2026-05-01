@@ -25,13 +25,13 @@
     </link>
 
     <gazebo reference="laser_frame">
-        <sensor name="laser" type="gpu_lidar">   <!-- era gpu_ray -->
+        <sensor name="laser" type="gpu_lidar">   
             <always_on>true</always_on>
             <visualize>true</visualize>
             <update_rate>10</update_rate>
             <topic>scan</topic>
-            <gz_frame_id>laser_frame</gz_frame_id>  <!-- ✅ necessário para o TF -->
-            <lidar>                                  <!-- ✅ era <ray> -->
+            <gz_frame_id>laser_frame</gz_frame_id> 
+            <lidar>                                  
                 <scan>
                     <horizontal>
                         <samples>1</samples>
