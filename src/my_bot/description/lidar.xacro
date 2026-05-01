@@ -8,7 +8,7 @@
     </joint>
         
     <link name="laser_frame">
-         <visual>
+        <visual>
             <geometry>
                 <cylinder radius="0.05" length="0.04"/>
             </geometry>
@@ -25,27 +25,28 @@
     </link>
 
     <gazebo reference="laser_frame">
-        <sensor name="laser" type="gpu_ray">
+        <sensor name="laser" type="gpu_lidar">   <!-- era gpu_ray -->
             <always_on>true</always_on>
             <visualize>true</visualize>
             <update_rate>10</update_rate>
             <topic>scan</topic>
-            <ray>
+            <gz_frame_id>laser_frame</gz_frame_id>  <!-- ✅ necessário para o TF -->
+            <lidar>                                  <!-- ✅ era <ray> -->
                 <scan>
                     <horizontal>
-                        <samples>360</samples>
+                        <samples>1</samples>
                         <resolution>1</resolution>
-                        <min_angle>-3.14</min_angle>
-                        <max_angle>3.14</max_angle>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
                     </horizontal>
                 </scan>
                 <range>
                     <min>0.3</min>
                     <max>12.0</max>
                 </range>
-            </ray>
-            <plugin filename="libignition-gazebo-sensors-system.so"
-                    name="ignition::gazebo::systems::Sensors">
+            </lidar>
+            <plugin filename="gz-sim-sensors-system"   
+                    name="gz::sim::systems::Sensors">
                 <render_engine>ogre2</render_engine>
             </plugin>
         </sensor>

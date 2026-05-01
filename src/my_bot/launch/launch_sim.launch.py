@@ -24,7 +24,7 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    # --- 3. Gazebo Sim (Jazzy) ---
+    # --- 3. Gazebo Sim (Jazzy / Harmonic) ---
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py'
@@ -32,12 +32,14 @@ def generate_launch_description():
     )
 
     # --- 4. Spawn do Robô ---
-    spawn_entity = Node(package='ros_gz_sim', executable='create',
-                        arguments=['-topic', 'robot_description',
-                                   '-name', 'my_bot'],
-                        output='screen')
+    spawn_entity = Node(
+        package='ros_gz_sim',
+        executable='create',
+        arguments=['-topic', 'robot_description', '-name', 'my_bot'],
+        output='screen'
+    )
 
-    # --- 5. Bridge ---
+    # --- 5. Bridge Gazebo <-> ROS2 ---
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -48,14 +50,16 @@ def generate_launch_description():
             '/tf_static@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
             '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'
+            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
         ],
         parameters=[{
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
+            'qos_overrides./scan.publisher.reliability': 'best_effort',
+            'use_sim_time': True,
         }],
         output='screen'
     )
-    
+
     return LaunchDescription([
         set_env,
         rsp,
