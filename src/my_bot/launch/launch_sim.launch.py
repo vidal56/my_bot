@@ -41,24 +41,23 @@ def generate_launch_description():
 
     # --- 5. Bridge Gazebo <-> ROS2 ---
     bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=[
-            '/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
-            '/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
-            '/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/tf_static@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
-            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
-        ],
-        parameters=[{
-            'qos_overrides./tf_static.publisher.durability': 'transient_local',
-            'qos_overrides./scan.publisher.reliability': 'best_effort',
-            'use_sim_time': True,
-        }],
-        output='screen'
-    )
+    package='ros_gz_bridge',
+    executable='parameter_bridge',
+    arguments=[
+        '/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
+        '/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
+        '/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
+        '/tf_static@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
+        '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
+        '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+        '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'
+    ],
+    parameters=[{
+        'qos_overrides./tf_static.publisher.durability': 'transient_local',
+        'qos_overrides./scan.publisher.reliability': 'best_effort',
+    }],
+    output='screen'
+)
 
     return LaunchDescription([
         set_env,

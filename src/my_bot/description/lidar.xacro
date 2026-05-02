@@ -30,13 +30,14 @@
             <visualize>true</visualize>
             <update_rate>10</update_rate>
             <topic>scan</topic>
+            <frame_id>laser_frame</frame_id>
             <lidar>
                 <scan>
                     <horizontal>
                         <samples>3</samples>
                         <resolution>1</resolution>
-                        <min_angle>-0.5</min_angle>
-                        <max_angle>0.5</max_angle>
+                        <min_angle>-0.2</min_angle>
+                        <max_angle>0.2</max_angle>
                     </horizontal>
                 </scan>
                 <range>
